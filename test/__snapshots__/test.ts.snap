@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AttendanceSystem should process days correctly 1`] = `
+{
+  "CDBalance": "00:-10",
+  "attendanceData": {
+    "Thu Mar 07 2024": {
+      "afternoon": {
+        "endTime": 2024-03-07T16:00:00.000Z,
+        "sessionHours": "03:50",
+        "startTime": 2024-03-07T12:10:00.000Z,
+      },
+      "dailyHours": "07:50",
+      "morning": {
+        "endTime": 2024-03-07T11:00:00.000Z,
+        "sessionHours": "04:00",
+        "startTime": 2024-03-07T07:00:00.000Z,
+      },
+    },
+    "Tue Mar 05 2024": {
+      "afternoon": {
+        "endTime": 2024-03-05T16:30:00.000Z,
+        "sessionHours": "04:00",
+        "startTime": 2024-03-05T12:30:00.000Z,
+      },
+      "dailyHours": "08:00",
+      "morning": {
+        "endTime": 2024-03-05T11:30:00.000Z,
+        "sessionHours": "04:00",
+        "startTime": 2024-03-05T07:30:00.000Z,
+      },
+    },
+    "Wed Mar 06 2024": {
+      "afternoon": {
+        "endTime": 2024-03-06T16:00:00.000Z,
+        "sessionHours": "04:00",
+        "startTime": 2024-03-06T12:00:00.000Z,
+      },
+      "dailyHours": "08:00",
+      "morning": {
+        "endTime": 2024-03-06T11:00:00.000Z,
+        "sessionHours": "04:00",
+        "startTime": 2024-03-06T07:00:00.000Z,
+      },
+    },
+  },
+  "creditBalance": "00:00",
+  "debitBalance": "-00:10",
+  "theoreticalWeeklyAttendanceTime": 24,
+}
+`;
