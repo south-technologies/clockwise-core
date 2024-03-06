@@ -1,74 +1,64 @@
-# clockwise-core
+# clockwise-core Library
 the core attendance system 
 
 ### Project Documentation
+### Attendance System
+
+The Attendance System is a TypeScript class that provides functionality for tracking employee attendance. It includes methods for starting a day, starting and ending sessions (e.g., morning, afternoon), calculating day hours, and adjusting theoretical hours. It also provides a method to convert the attendance data to a formatted JSON object.
 
 #### Installation
 
-Before you start, ensure you have Node.js and npm installed.
+To use the Attendance System in your TypeScript project, you can install it via npm:
 
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/your-username/your-project.git
-   ```
-
-2. Install dependencies:
-
-   ```bash
-   cd your-project
-   npm install
-   ```
+```bash
+npm install
+```
 
 #### Usage
 
-To build the documentation, run:
+```typescript
+import { AttendanceSystem } from 'AttendanceSystem';
 
-```bash
-npm run docs
+const attendanceSystem = new AttendanceSystem();
+
+// Example usage
+const startDate = new Date('2024-03-05');
+attendanceSystem.startDay(startDate);
+
+attendanceSystem.startSession('morning');
+attendanceSystem.endSession(new Date('2024-03-05T08:30:00'), new Date('2024-03-05T12:30:00'));
+
+attendanceSystem.calculateDayHours(startDate.toDateString());
+attendanceSystem.adjustTheoreticalHours(startDate.toDateString());
+
+console.log(JSON.stringify(attendanceSystem.toJSON(), null, 2));
 ```
 
-This will generate the documentation in the `docs` directory.
+### Tests
 
-#### Configuration
+to run test use the following command:
+```bash
+npm test
+```
 
-You can customize the documentation output by modifying the `tsconfig.json` file. Here are some common configurations:
+#### API
 
-- **Exclude Files:** Exclude specific files or directories from the documentation:
+- `startDay(date: Date): void`: Starts a new day with the given date.
+- `startSession(session: string): void`: Starts a new session (e.g., morning, afternoon).
+- `endSession(startTime: Date, endTime: Date): void`: Ends the current session with the given start and end times.
+- `calculateDayHours(day: string): void`: Calculates the total hours worked for a given day.
+- `adjustTheoreticalHours(day: string): void`: Adjusts the theoretical weekly attendance time based on the actual hours worked.
+- `toJSON(): FormattedAttendanceData`: Converts the attendance data to a formatted JSON object.
 
-  ```json
-  "exclude": ["node_modules", "dist"]
-  ```
+#### Interfaces
 
-- **Include Files:** Include specific files or directories in the documentation:
+- `Session`: Represents a session with start time, end time, and session hours.
+- `FormattedSession`: Represents a formatted session with start time, end time, and session hours as a string.
+- `FormattedAttendanceData`: Represents formatted attendance data for a day, including morning and afternoon sessions and daily hours.
 
-  ```json
-  "include": ["src"]
-  ```
+### License
 
-- **Out Directory:** Specify the output directory for the documentation:
-
-  ```json
-  "outDir": "docs"
-  ```
-
-#### Contributing
-
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature-branch`).
-3. Make your changes.
-4. Commit your changes (`git commit -am 'Add new feature'`).
-5. Push to the branch (`git push origin feature-branch`).
-6. Create a new Pull Request.
-
-#### License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-#### Additional Information
-
-For more detailed information, refer to the [TypeDoc Documentation](https://typedoc.org/).
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 ---
 
-Feel free to adjust this template to fit your project's specific needs and structure.
